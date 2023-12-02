@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h1>登录</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form action="/validate" method="post">
+        <label for="username">游戏名字:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="submit" value="登录">
+       
+    </form>
+<button onclick="redirectToRegister()">注册</button>
+
+<script>
+    function redirectToRegister() {
+        window.location.href = "/register";
+    }
+</script>
+
+</body>
+</html>
